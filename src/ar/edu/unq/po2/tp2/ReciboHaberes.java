@@ -4,15 +4,15 @@ import java.time.LocalDate;
 
 public class ReciboHaberes {
 	
-	 private DesgloceConceptos desgloceActual;
+	 private String desgloceActual;
      private String nombreEmpleado;
      private String direccionEmpleado;
  
   	 private LocalDate fechaEmision;
     
      
-     public ReciboHaberes(
-    		 DesgloceConceptos desgloceActual,
+     public ReciboHaberes( // quizas deberia recibir un empleado y que el recibo se encargue 
+    		 String desgloceActual,
     		 String nombreEmpleado, 
     	     String direccionEmpleado,
              LocalDate fechaEmision)
@@ -35,8 +35,11 @@ public class ReciboHaberes {
      }
      
      public void desgloceDeConceptos() {
-    	 desgloceActual.darInformacion();
+    	 System.out.println(desgloceActual);
      }
+}   
+     
+  
      
      
-}
+

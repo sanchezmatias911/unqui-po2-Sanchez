@@ -3,7 +3,7 @@ package ar.edu.unq.po2.tp2;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Empleado {
+public abstract class Empleado {
 
 		private String nombre;
 		private String direccion;
@@ -11,6 +11,12 @@ public class Empleado {
 		private LocalDate fechaNac;
 		private float sueldoBasico;
 		
+		public String nombre() {
+			return nombre;
+		}
+		public String direccion() {
+			return direccion;
+		}
 		public float sueldoBasico() {
 			return sueldoBasico;
 		}
@@ -75,6 +81,24 @@ public class Empleado {
 		public float sueldoNeto() {
 			return this.sueldoBruto() - this.retenciones();
 		}
+		
+		/*Debido a que cada clase de empleado tendra 
+		 * conceptos diferentes en su recibo tome la
+		 * decicion de que el propio empleado cree su recibo
+		 * para el momento en que la empresa genere el recibo
+		 */
+		public abstract String generarReciboDeSueldo();
+		
+		// para generar el recibo
+		public float calcular (float montoACalcular[]) {
+			float totalMontos = 0;
+			  for (float monto : montoACalcular) {
+		            totalMontos += monto;
+		        }
+			  return totalMontos;
+		}
+			
+		
 		
 		
 		

@@ -1,70 +1,20 @@
 package ar.edu.unq.po2.tp2;
 
-public class EmpleadoPermanente extends Empleado{
-	
-	private int cantidadHijos;
-	
-	private int antiguedad;
-	
-	private int cantidadHijos() {
-		return cantidadHijos;
-	}
-	
-	private int antiguedad() {
-		return antiguedad;
-	}
-	//SALARIO FAMILIAR
-	public float salarioFamiliar() {
-		return this.asignacionPorHijo() + 
-			   this.asignacionPorConyuge() ;
-			   
-	}
-	
-	public float asignacionPorConyuge() {
-		
-		if (this.tieneConyuge()) {
-			return 100;
-		}
-		else return 0;
-	}
-	
-	public boolean tieneConyuge() {
-		return this.estadoCivil().equalsIgnoreCase("Casado/a");
-	}
-	public float asignacionPorHijo() {
-		return this.cantidadHijos() * this.extraPorHijo();
-	}
-	
-	public float asignacionPorAntiguedad() {
-		return this.antiguedad() * this.extraPorAntiguedad(); 
-	}
-	
-	public int extraPorAntiguedad() {
-		return 50;
-	}
+public class EmpleadoContratado extends Empleado {
+
 	
 	
-	public float extraPorHijo() {
-		return 150;
-	}
-	
-	//SUELDO BRUTO
-	public float sueldoBruto() {
-		return super.sueldoBruto() + 
-				this.salarioFamiliar() + 
-				this.asignacionPorAntiguedad();}
+	String medioDePago;
+	String numeroDeContacto;
 	
 	@Override
-	public float asignacionExtraObraSocial(){
-		return (float) (this.cantidadHijos() * 20);
-	}
-	@Override 
-	public float porcentajeRetencionJubilacion() {
-		return (float) 0.15;
+	public float retenciones(){
+		return this.gastosAdministrativosContractuales();
 	}
 	
-	// Desgloce de conceptos 
-	
+	public float gastosAdministrativosContractuales() {
+		return (float) 50;
+	}
 	
 	@Override
 	public String generarReciboDeSueldo() {
@@ -72,9 +22,9 @@ public class EmpleadoPermanente extends Empleado{
         // Conceptos, montos y deducciones por columnas 
 		// si los conceptos son montos se pide el monto, si no el valor es 0 
 		// Los valores estan indexados en los 3 Arrays
-        String[] conceptos  = {"Sueldo Básico", "Salario Familiar", "Antiguedad", "Obra Social", "Aportes Jubilatorios" };
-        float[] montos      = {this.sueldoBasico(), this.salarioFamiliar(), this.asignacionPorAntiguedad(), 0 , 0   };
-        float[] deducciones = {0 , 0  , 0   , this.retencionesPorObraSocial(), this.retencionesPorAportesJubilatorios()};
+        String[] conceptos  = {"Sueldo Básico", "Gastos Administrativos" };
+        float[] montos      = {this.sueldoBasico(),  0   };
+        float[] deducciones = {0 , this.gastosAdministrativosContractuales()};
 
         // Calcular sueldoNeto
        
@@ -105,11 +55,5 @@ public class EmpleadoPermanente extends Empleado{
         //Devolvemos el recibo
         return sb.toString();
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

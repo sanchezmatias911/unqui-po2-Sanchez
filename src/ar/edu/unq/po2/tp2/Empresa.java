@@ -1,16 +1,21 @@
 package ar.edu.unq.po2.tp2;
 
-import java.util.Optional;
+
+import java.time.LocalDate;
 import java.util.Set;
 
 public class Empresa {
 
 	private String nombre;
 	private String cuit;
-	private static Set<Empleado> empleados;
-	private static Set <ReciboHaberes> reciboHaberesEmpleados;
+	private  static Set<Empleado> empleados;
+	private  static Set <ReciboHaberes> reciboHaberesEmpleados;
 	
-	public static void liquidarSueldos() {
+	public  void liquidarSueldos() {
+		for (Empleado emp : empleados) {
+			this.generarReciboHaberes(emp);
+			
+		}
 		
 	}
 	public static float montoTotalSueldosBrutos() {
@@ -29,5 +34,16 @@ public class Empresa {
 		return (float) empleados.stream()
                        .mapToDouble(Empleado::retenciones) 
                        .sum();
+	}
+	
+	public void generarReciboHaberes(Empleado emp) {
+		ReciboHaberes nuevoRecibo = new ReciboHaberes(
+				emp.generarReciboDeSueldo(),
+				emp.nombre(),
+				emp.direccion(),
+				LocalDate.now());
+		
+		reciboHaberesEmpleados.add(nuevoRecibo);
+		
 	}
 }
