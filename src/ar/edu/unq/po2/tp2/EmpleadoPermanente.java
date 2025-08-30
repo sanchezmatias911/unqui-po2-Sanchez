@@ -1,4 +1,4 @@
-package tpUML;
+package ar.edu.unq.po2.tp2;
 
 public class EmpleadoPermanente extends Empleado{
 	
@@ -14,13 +14,13 @@ public class EmpleadoPermanente extends Empleado{
 		return antiguedad;
 	}
 	//SALARIO FAMILIAR
-	private float salarioFamiliar() {
+	public float salarioFamiliar() {
 		return this.asignacionPorHijo() + 
 			   this.asignacionPorConyuge() ;
 			   
 	}
 	
-	private float asignacionPorConyuge() {
+	public float asignacionPorConyuge() {
 		
 		if (this.tieneConyuge()) {
 			return 100;
@@ -28,23 +28,23 @@ public class EmpleadoPermanente extends Empleado{
 		else return 0;
 	}
 	
-	private boolean tieneConyuge() {
+	public boolean tieneConyuge() {
 		return this.estadoCivil().equalsIgnoreCase("Casado/a");
 	}
-	private float asignacionPorHijo() {
+	public float asignacionPorHijo() {
 		return this.cantidadHijos() * this.extraPorHijo();
 	}
 	
-	private float asignacionPorAntiguedad() {
+	public float asignacionPorAntiguedad() {
 		return this.antiguedad() * this.extraPorAntiguedad(); 
 	}
 	
-	private int extraPorAntiguedad() {
+	public int extraPorAntiguedad() {
 		return 50;
 	}
 	
 	
-	private float extraPorHijo() {
+	public float extraPorHijo() {
 		return 150;
 	}
 	

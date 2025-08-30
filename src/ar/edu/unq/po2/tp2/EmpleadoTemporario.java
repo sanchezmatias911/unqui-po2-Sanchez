@@ -1,4 +1,4 @@
-package tpUML;
+package ar.edu.unq.po2.tp2;
 
 import java.util.Date;
 
@@ -15,10 +15,10 @@ public class EmpleadoTemporario extends Empleado{
 		return super.sueldoBruto() + this.asignacionPorHorasExtras();
 	}
 	
-	private float asignacionPorHorasExtras() {
+	public float asignacionPorHorasExtras() {
 		return (float) (this.cantidadHorasExtra()* this.bonoPorHoraExtra());
 	}
-	private float bonoPorHoraExtra() {
+	public float bonoPorHoraExtra() {
 		return 40;
 	}
 	
@@ -49,7 +49,7 @@ public class EmpleadoTemporario extends Empleado{
 	}
 	
 	
-	private boolean cumpleRequisitoParaExtraPorEdad() {
+	public boolean cumpleRequisitoParaExtraPorEdad() {
 		return this.edad() >50;
 	}
 }

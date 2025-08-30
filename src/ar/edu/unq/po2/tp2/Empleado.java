@@ -1,4 +1,4 @@
-package tpUML;
+package ar.edu.unq.po2.tp2;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -56,7 +56,7 @@ public class Empleado {
 			return (float) 0.0;
 		}
 		
-		private float porcentajePorObraSocial() {
+		public float porcentajePorObraSocial() {
 			return (float) (this.sueldoBruto() *  0.1);
 		}
        
