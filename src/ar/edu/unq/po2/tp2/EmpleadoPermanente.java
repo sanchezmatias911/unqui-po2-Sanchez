@@ -1,7 +1,18 @@
 package ar.edu.unq.po2.tp2;
 
+import java.time.LocalDate;
+
 public class EmpleadoPermanente extends Empleado{
 	
+	
+
+	public EmpleadoPermanente(String nombre, String direccion, String estadoCivil, LocalDate fechaNac,
+			float sueldoBasico, int cantidadHijos, int antiguedad) {
+		super(nombre, direccion, estadoCivil, fechaNac, sueldoBasico);
+		this.cantidadHijos = cantidadHijos;
+		this.antiguedad = antiguedad;
+	}
+
 	private int cantidadHijos;
 	
 	private int antiguedad;

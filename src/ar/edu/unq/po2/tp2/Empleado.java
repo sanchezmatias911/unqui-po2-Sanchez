@@ -5,6 +5,15 @@ import java.time.Period;
 
 public abstract class Empleado {
 
+		public Empleado(String nombre, String direccion, String estadoCivil, LocalDate fechaNac, float sueldoBasico) {
+		
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.estadoCivil = estadoCivil;
+		this.fechaNac = fechaNac;
+		this.sueldoBasico = sueldoBasico;
+	}
+
 		private String nombre;
 		private String direccion;
 		private String estadoCivil;
@@ -95,7 +104,7 @@ public abstract class Empleado {
 			  for (float monto : montoACalcular) {
 		            totalMontos += monto;
 		        }
-			  return totalMontos;
+			  return (float) totalMontos;
 		}
 			
 		

@@ -1,9 +1,18 @@
 package ar.edu.unq.po2.tp2;
 
+import java.time.LocalDate;
+
 public class EmpleadoContratado extends Empleado {
 
 	
 	
+	public EmpleadoContratado(String nombre, String direccion, String estadoCivil, LocalDate fechaNac,
+			float sueldoBasico, String medioDePago, String numeroDeContacto) {
+		super(nombre, direccion, estadoCivil, fechaNac, sueldoBasico);
+		this.medioDePago = medioDePago;
+		this.numeroDeContacto = numeroDeContacto;
+	}
+
 	String medioDePago;
 	String numeroDeContacto;
 	
