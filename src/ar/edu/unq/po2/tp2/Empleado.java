@@ -97,6 +97,7 @@ public abstract class Empleado {
 		 * para el momento en que la empresa genere el recibo
 		 */
 		public abstract String generarReciboDeSueldo();
+		// TODO Fallo en este metodo y en las subclases. NO USAR 
 		
 		// para generar el recibo
 		public float calcular (float montoACalcular[]) {
