@@ -1,11 +1,25 @@
 package ar.edu.unq.po2.tp5;
 
-public abstract class Producto implements ProductoInterface {
+public class Producto implements Registrable{
+	
+	int stock;
+    double precioBasico;
+	
+	public Producto(double precioBasico, int stock) {
+	            this.precioBasico = precioBasico;
+	            this.stock = stock;
+	}
+		
+	@Override	
+	public double precio() {
+		return this.precioBasico;// TODO Auto-generated method stub
+
+	}
+
 
 	@Override
-	public abstract double precio();
-		// TODO Auto-generated method stub
-
-	
-
+	public void accionesRegistro() {
+		stock-=1;
+		
+	}
 }
