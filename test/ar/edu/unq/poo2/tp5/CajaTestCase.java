@@ -26,9 +26,9 @@ class CajaTestCase {
 	@BeforeEach
 	void setUp()  {
 		cajaSuper = new Caja();
-		p1 = new Producto(10.4,30);
-		p2 = new ProductoCooperativa(12.4,30);
-		p3 = new ProductoCooperativa(14.2,30);	
+		p1 = new Producto(10.4);
+		p2 = new ProductoCooperativa(12.4);
+		p3 = new ProductoCooperativa(14.2);	
 		cajaSuper.registrar(p1);
 	    cajaSuper.registrar(p2);
 	    cajaSuper.registrar(p3);

@@ -1,10 +1,10 @@
 package ar.edu.unq.po2.tp5;
 
-public class Factura {
+public abstract class Factura implements Registrable{
 	
-	Agencia miAgencia; 
 	
-    public void accionesRegistro() {
-    	  miAgencia.registrarPago(this);
+	public abstract double precio();
+    public void registrarse(Caja caja) {
+    	  caja.registrarFactura(this);
     }
 }

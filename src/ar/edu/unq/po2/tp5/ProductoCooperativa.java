@@ -2,11 +2,11 @@ package ar.edu.unq.po2.tp5;
 
 public class ProductoCooperativa extends Producto {
     
-	public ProductoCooperativa(double precioBasico, int stock) {
-		super(precioBasico, stock);
+	public ProductoCooperativa(double precioBasico) {
+		super(precioBasico);
 		// TODO Auto-generated constructor stub
 	}
-
+   
 		
 	@Override
 	public double precio() {
